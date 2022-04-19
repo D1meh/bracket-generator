@@ -6,4 +6,5 @@ int main(void) {
 	d.printGroupStages();
 	d.calculateQualified();
 	d.generateNextStages();
+	d.generateVisualBracket();
 }

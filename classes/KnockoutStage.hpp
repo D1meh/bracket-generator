@@ -15,6 +15,7 @@ public:
 	int nb_qualif;
 	int qualified;
 	bool win_or_lose_bracket;
+	bool same_number;
 
 	std::vector<int> groups;
 

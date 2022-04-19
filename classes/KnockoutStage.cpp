@@ -12,6 +12,12 @@ KnockoutStage::KnockoutStage(int joueurs, bool bracket) {
 		this->qualified = 2;
 		this->groups.push_back(2);
 		this->groups.push_back(2);
+		this->same_number = true;
+	} else if (joueurs == 2) {
+		this->nb_qualif = 1;
+		this->qualified = 1;
+		this->groups.push_back(2);
+		this->same_number = true;
 	}
 }
 
