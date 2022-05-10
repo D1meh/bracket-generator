@@ -215,6 +215,7 @@ void Input::generateLoserBracket(void) {
 		left = player_left;
 	}
 	this->winnerBracket.push_back(KnockoutStage(2));
+	//this->winnerBracket.push_back(KnockoutStage(2));
 	std::cout << "Il ne reste qu'un joueur, qui va donc affronter en finale du loser bracket le perdant de la finale du winner bracket pour une place en grande finale !" << std::endl;
 }
 
@@ -234,6 +235,7 @@ void Input::generateVisualBracket(void) {
 }
 
 void Input::visualGroupStages(void) {
+	this->visual.push_back("");
 	this->visual.push_back("\tPHASE DE POULES\n");
 	this->visual.push_back(std::to_string(this->nb_participants) + " joueurs");
 	if (this->same_number)
@@ -255,6 +257,7 @@ void Input::visualGroupStages(void) {
 		it++;
 		poule++;
 	}
+	this->visual.push_back("");
 	this->writeAndClear();
 }
 
@@ -322,12 +325,13 @@ void Input::visualWinnerBracket(void) {
 }
 
 void Input::visualLoserBracket(void) {
-	int nb_tour = this->loserBracket.size();
 	int tour = 0;
 	std::vector<KnockoutStage>::iterator it = this->loserBracket.begin();
 
 
 	this->visual.push_back("\tLOSER BRACKET\n");
+	this->loserBracket.push_back(KnockoutStage(2));
+	int nb_tour = this->loserBracket.size();
 	while (it != this->loserBracket.end()) {
 		std::vector<int>::iterator ko = this->loserBracket[tour].groups.begin();
 		char groupe = 'A';
@@ -389,6 +393,6 @@ void Input::writeAndClear(void) {
 		this->fd <<  *it << std::endl;
 		it++;
 	}
-	this->fd << std::endl;
+	//this->fd << std::endl;
 	this->visual.clear();
 }
